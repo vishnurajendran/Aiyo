@@ -7,10 +7,12 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+	
 	}
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
+		Tests.Test.StartTest();
 		count++;
 
 		if (count == 1)

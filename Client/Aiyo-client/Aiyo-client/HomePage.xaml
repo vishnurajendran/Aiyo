@@ -2,31 +2,85 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aiyo_Client.HomePage"
-             Title="Aiyo!" MinimumWidthRequest="725" MinimumHeightRequest="325">
+             Title="Aiyo!" Visual="Default">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+
         <!-- Left Panel -->
-        <VerticalStackLayout x:Name="historyLayout" BackgroundColor="Green" Grid.Column="0">
-        </VerticalStackLayout>
+        <VerticalStackLayout x:Name="historyLayout" BackgroundColor="#080808" Grid.Column="0" ZIndex="10"/>
         <!-- Right Panel -->
         <Grid Grid.Column="1">
             <!-- Row definitions -->
             <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
                 <RowDefinition />
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
+            <!-- Messages Header area -->
+            <HorizontalStackLayout BackgroundColor="#070707" Grid.Row="0">
+                            
+            </HorizontalStackLayout>
+            
             <!-- Messages Area -->
-            <VerticalStackLayout x:Name="messagesArea" BackgroundColor="Red" Grid.Row="0">
-            </VerticalStackLayout>
-
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout x:Name="messagesArea" BackgroundColor="Black"  Padding="10" Spacing="10">
+                </VerticalStackLayout>
+            </ScrollView>
+            
             <!-- Typing definitions -->
-            <VerticalStackLayout x:Name="typingArea" BackgroundColor="Yellow" Grid.Row="1">
-            </VerticalStackLayout>
-        </Grid>
+            <Grid Grid.Row="2" Padding="10" BackgroundColor="Black">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                
+                <Editor x:Name="messageInputField" BackgroundColor="#070707" Placeholder="Enter Message here" PlaceholderColor="DarkGray"  Grid.Column="0" Margin="0,0,10,0" AutoSize="TextChanges" IsSpellCheckEnabled="True" Keyboard="Chat"/>
+                <ImageButton
+                    x:Name="sendButton"     
+                    HeightRequest="50"
+                    Grid.Column="1" 
+                    Source="send.png" 
+                    Aspect="AspectFill"
+                    BackgroundColor="RoyalBlue" 
+                    CornerRadius="100" 
+                    BorderColor="White">
 
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup>
+                                <!--Normal button state-->
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="RoyalBlue" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <!--Pressed button state-->
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#3557BD" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <!--Pointer button state-->
+                                <VisualState x:Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#3A5FCF" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <!--Focused button state-->
+                                <VisualState x:Name="Focused"/>
+                                
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </ImageButton>
+            </Grid>
+        </Grid>
     </Grid>
 </ContentPage>

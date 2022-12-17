@@ -25,6 +25,9 @@ namespace Aiyo_Core.RemoteEvents
         /// <param name="handler"></param>
         public static void RegisterEventHandler(IRemoteEventHandler handler)
         {
+            if(handlers== null)
+                handlers= new List<IRemoteEventHandler>();
+
             handlers.Add(handler);
         }
 

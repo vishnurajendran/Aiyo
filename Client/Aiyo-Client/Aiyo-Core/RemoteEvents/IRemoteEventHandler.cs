@@ -1,5 +1,5 @@
 ﻿
-namespace Aiyo_Client.RemoteEvents
+namespace Aiyo_Core.RemoteEvents
 {
     public interface IRemoteEventHandler
     {

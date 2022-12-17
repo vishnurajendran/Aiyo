@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json;
-using Aiyo_Client.ErrorManagement;
-using Aiyo_Client.RemoteEvents.Client;
+﻿using Aiyo_Core.RemoteEvents.Client;
+using Aiyo_Core.Utilities.ErrorManagement;
 
-namespace Aiyo_Client.RemoteEvents
+namespace Aiyo_Core.RemoteEvents
 {
-    public class RemoteEventBus
+    public static class RemoteEventBus
     {
         private static List<IRemoteEventHandler> handlers;
         private static RemoteClientBase client;

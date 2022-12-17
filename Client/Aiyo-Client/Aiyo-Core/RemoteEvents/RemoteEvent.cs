@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Aiyo_Client.RemoteEvents
+﻿namespace Aiyo_Core.RemoteEvents
 {
     /// <summary>
     /// Pay load class for any remote events trigerred.

@@ -1,5 +1,5 @@
 ﻿
-namespace Aiyo_Client.RemoteEvents.Client
+namespace Aiyo_Core.RemoteEvents.Client
 {
     public enum DisconnectionType
     {

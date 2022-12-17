@@ -59,6 +59,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Aiyo-Core\Aiyo-Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Controls\MessageBubble.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aiyo_Client.ErrorManagement
+namespace Aiyo_Core.Utilities.ErrorManagement
 {
     class Logger
     {
-        public static void Log(string msg){
+        public static void Log(string msg)
+        {
 #if WINDOWS
             System.Diagnostics.Debug.WriteLine($"LOG:: {msg}");
 #else

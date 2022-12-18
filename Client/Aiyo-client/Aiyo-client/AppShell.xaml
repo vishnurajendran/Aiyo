@@ -9,6 +9,7 @@
     Shell.FlyoutBehavior="Disabled" MinimumHeightRequest="325" MinimumWidthRequest="725">
 
     <ShellContent
+        x:Name="homePage"
         Title="Home"
         ContentTemplate="{DataTemplate local:HomePage}"
         Route="MainPage" />

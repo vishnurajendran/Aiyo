@@ -10,7 +10,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left Panel -->
-        <VerticalStackLayout x:Name="historyLayout" BackgroundColor="#080808" Grid.Column="0" ZIndex="10"/>
+        <VerticalStackLayout x:Name="historyLayout" BackgroundColor="#080808" Grid.Column="0"/>
         <!-- Right Panel -->
         <Grid Grid.Column="1">
             <!-- Row definitions -->

@@ -17,6 +17,8 @@ namespace Aiyo_Core.RemoteEvents
             handlers.Clear();
             client = remoteClientInstance;
             client.OnRemoteEventRecieved += OnRemoteEventRecieved;
+
+            Logger.Log("Event Bus Initialised");
         }
 
         /// <summary>
@@ -29,6 +31,7 @@ namespace Aiyo_Core.RemoteEvents
                 handlers= new List<IRemoteEventHandler>();
 
             handlers.Add(handler);
+            Logger.Log("Registered Event Handler " + handler.GetType().Name);
         }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace Aiyo_Core.RemoteEvents
                 return;
             }
 
-            client.SubmitEvent(new RemoteEvent()
+            var evnt = new RemoteEvent()
             {
                 //metadata
                 //needs to be filled by client before sending
@@ -52,13 +55,16 @@ namespace Aiyo_Core.RemoteEvents
                 //payload
                 EventId = sender.SupportedEventId,
                 SerialisedEventData = eventData,
-            });
+            };
+            client.SubmitEvent(evnt);
+            Logger.Log($"Sent Event Data for {evnt.EventId}");
         }
 
         private static void OnRemoteEventRecieved(RemoteEvent remoteEvent)
         {
             try
             {
+                Logger.Log($"Recieved Event Data for {remoteEvent.EventId}");
                 TryHandleEventData(remoteEvent);
             }
             catch (Exception ex) { 
